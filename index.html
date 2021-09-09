@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/styles.css">
+
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="jumbotron-fluid bg-dark text-white text-center">
+            <div class="container">
+                <h1 class="display">Weather Dashboard</h1>
+            </div>
+        </div>
+        <!--City Search Section-->
+        <div class="row">
+            <div class="col-3 m-3 bg-light">
+                <h2>City:</h2>
+                <div class="cities-card">
+                    <input type="text" class="form" id="city-input">
+                    <div class="city-group">
+                        <button id="city-search" class="btn btn-outline-secondary bg primary" type="button">Search</button>
+                    </div>
+                </div>
+            <div class="card" style="width: 15rem">
+                <ul id="cities-list" class="list-group list-group-flush">
+                    
+                </ul>
+            </div>
+            </div>
+            <!--Current Day Search Results-->
+            <div class="col-8 m-3">
+                <div class="row-12">
+                    <h3>Current Weather</h3>
+                    <div class="card">
+                        <div id="weather-now" class="card-body">
+                            <p>Temperature: <span id="temp"></span></p>
+                            <p>Humidity: <span id="humid"></span></p>
+                            <p>Wind Speed: <span id="wind"></span></p>
+                            <p>UV Index: <span class="uvi" id="uv"></span></p>
+    
+                        </div>
+                    </div>
+                </div>
+                <!--Five Day Forecast Section-->
+                <div class="row-12">
+                    <h3>5-Day Forecast</h3>
+                </div>
+                <div id="boxes" class="row d-inline-flex">
+                    <div class="col">
+                        <h5><span class="date" id="day-one"></span></h5>
+                        <img id="icon-1">
+                        <p>Temperature: <span id="temp-1"></span></p>
+                        <p>Humidity: <span id="humid-1"></span></p>
+                    </div>
+                    <div class="col">
+                        <h5><span class="date" id="day-two"></span></h5>
+                        <img id="icon-2">
+                        <p>Temperature: <span id="temp-2"></span></p>
+                        <p>Humidity: <span id="humid-2"></span></p>
+                    </div>
+                    <div class="col">
+                        <h5><span class="date" id="day-three"></span></h5>
+                        <img id="icon-3">
+                        <p>Temperature: <span id="temp-3"></span></p>
+                        <p>Humidity: <span id="humid-3"></span></p>
+                    </div>
+                    <div class="col">
+                        <h5><span class="date" id="day-four"></span></h5>
+                        <img id="icon-4">
+                        <p>Temperature: <span id="temp-4"></span></p>
+                        <p>Humidity: <span id="humid-4"></span></p>
+                    </div>
+                    <div class="col">
+                        <h5><span class="date" id="day-five"></span></h5>
+                        <img id="icon-5">
+                        <p>Temperature: <span id="temp-5"></span></p>
+                        <p>Humidity: <span id="humid-5"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="assets/script.js"></script>
+
+</body>
+
+</html>
