@@ -1,6 +1,8 @@
 // Global variables
 var searchHistory = [];
-var citySearch = document.querySelector("#city-search");
+var searchButton = document.querySelector("#search-button");
+var cityInput = document.querySelector("#city-input");
+var historyContainer = document.querySelector("#search-history");
 var temperature = document.querySelector("#temp");
 var humidity = document.querySelector("#humid");
 var windSpeed = document.querySelector("#wind");
@@ -67,6 +69,6 @@ function renderWeather(city, data) {
 
 }
 
-function setQuery() {
-
-};
+function renderHistory() {
+    historyContainer.innerHTML = "";
+}
