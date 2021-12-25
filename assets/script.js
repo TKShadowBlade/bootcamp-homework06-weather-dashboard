@@ -51,7 +51,7 @@ function getWeather(location) {
     .then(data => renderWeather(city, data));
 };
 
-fetchCoords('Columbus');
+//fetchCoords('Columbus');
 
 function renderWeather(city, data) {
     console.log(data);
@@ -69,6 +69,20 @@ function renderWeather(city, data) {
 
 }
 
+function handleSearchFormSubmit(evt) {
+    if (!cityInput.value) {
+        return;
+    }
+
+    evt.preventDefault();
+    var search = cityInput.value.trim();
+    fetchCoords(search);
+    cityInput.value = "";
+}
+
 function renderHistory() {
     historyContainer.innerHTML = "";
 }
+
+cityInput.addEventListener('submit', handleSearchFormSubmit);
+searchButton.addEventListener('click', handleSearchHistoryClick);
