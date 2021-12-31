@@ -31,6 +31,7 @@ function fetchCoords(search) {
           alert('Location not found');
         } else {
           console.log(data)
+          updateHistory(search);
           getWeather(data[0]) // {lat: x, lon: y});
         }
       })
@@ -79,6 +80,13 @@ function handleSearchFormSubmit(evt) {
     cityInput.value = "";
 }
 
+function handleHistoryClick(evt) {
+
+  var btn = evt.target;
+  var search = btn.getAttribute('data-search');
+  fetchCoords(search);
+}
+
 function renderHistory() {
     historyContainer.innerHTML = "";
 
@@ -114,3 +122,4 @@ function getSearchHistory() {
 getSearchHistory();
 cityInput.addEventListener('submit', handleSearchFormSubmit);
 searchButton.addEventListener('click', handleSearchFormSubmit);
+historyContainer.addEventListener('click', handleHistoryClick)
