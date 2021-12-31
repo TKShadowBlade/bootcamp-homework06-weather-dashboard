@@ -30,8 +30,7 @@ function fetchCoords(search) {
         if (!data[0]) {
           alert('Location not found');
         } else {
-        // appendToHistory('Austin');
-        console.log(data)
+          console.log(data)
           getWeather(data[0]) // {lat: x, lon: y});
         }
       })
@@ -82,7 +81,36 @@ function handleSearchFormSubmit(evt) {
 
 function renderHistory() {
     historyContainer.innerHTML = "";
+
+    for (var i = searchHistory.length - 1; i >= 0; i--) {
+      var btn = document.createElement('button');
+      btn.setAttribute('type', 'button');
+      btn.setAttribute('aria-controls', 'forecast');
+        
+      btn.setAttribute('data-search', searchHistory[i]);
+      btn.textContent = searchHistory[i];
+      historyContainer.append(btn);
+  }
 }
 
+function updateHistory(search) {
+  if (searchHistory.indexOf(search) !== -1) {
+    return;
+  }
+  searchHistory.push(search);
+
+  localStorage.setItem('search-history', JSON.stringify(searchHistory));
+  renderHistory();
+}
+
+function getSearchHistory() {
+  var historyStored = localStorage.getItem('search-history');
+  if (historyStored) {
+    searchHistory = JSON.parse(historyStored);
+  }
+  renderHistory();
+}
+
+getSearchHistory();
 cityInput.addEventListener('submit', handleSearchFormSubmit);
-searchButton.addEventListener('click', handleSearchHistoryClick);
+searchButton.addEventListener('click', handleSearchFormSubmit);
